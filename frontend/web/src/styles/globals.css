@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --font-size-base: 16px;
+  --transition-speed: 200ms;
+}
+
+/* ── Base reset ────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-white font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  /* Focus ring — accessible keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-surface;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-600; }
+
+  /* Selection */
+  ::selection { @apply bg-brand-600 text-white; }
+}
+
+/* ── Accessibility modes ───────────────────────────────────── */
+
+/* High contrast mode */
+.mode-high-contrast {
+  --bg-primary:   #000000;
+  --bg-card:      #111111;
+  --text-primary: #ffffff;
+  --text-muted:   #eeeeee;
+  --border:       #ffffff;
+  --accent:       #ffff00;
+}
+.mode-high-contrast body        { background: var(--bg-primary) !important; color: var(--text-primary) !important; }
+.mode-high-contrast .card       { background: var(--bg-card) !important; border: 2px solid var(--border) !important; }
+.mode-high-contrast a,
+.mode-high-contrast button      { color: var(--accent) !important; }
+
+/* Large text mode */
+.mode-large-text { --font-size-base: 20px; }
+.mode-large-text body           { font-size: 1.25rem; }
+.mode-large-text h1             { font-size: 2.5rem !important; }
+.mode-large-text h2             { font-size: 2rem !important; }
+.mode-large-text h3             { font-size: 1.75rem !important; }
+.mode-large-text p, 
+.mode-large-text span,
+.mode-large-text li             { font-size: 1.2rem !important; line-height: 1.8 !important; }
+
+/* Reduced motion */
+.mode-reduced-motion *,
+.mode-reduced-motion *::before,
+.mode-reduced-motion *::after   { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+
+/* ── Utility classes ───────────────────────────────────────── */
+@layer components {
+
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl shadow-card
+           transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:border-brand-600/50 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-gradient-brand text-white shadow-glow-brand
+           hover:opacity-90 active:scale-95
+           transition-all duration-150
+           focus-visible:ring-2 focus-visible:ring-brand-400;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-surface-hover border border-surface-border text-white
+           hover:border-brand-500/60 hover:bg-surface-border
+           active:scale-95 transition-all duration-150;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
+           text-slate-400 hover:text-white hover:bg-surface-hover
+           transition-all duration-150;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl bg-surface-hover border border-surface-border
+           text-white placeholder-slate-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-all duration-150;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-white tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-slate-400 mt-1;
+  }
+
+  /* Glow orb background decoration */
+  .glow-orb {
+    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
+  }
+
+  /* Shimmer loading skeleton */
+  .skeleton {
+    @apply bg-surface-hover rounded-xl animate-pulse;
+    background: linear-gradient(90deg, #16162a 25%, #1e1e35 50%, #16162a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Score ring */
+  .score-ring {
+    @apply relative inline-flex items-center justify-center;
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           text-slate-400 hover:text-white hover:bg-surface-hover
+           transition-all duration-150 cursor-pointer;
+  }
+  .nav-item.active {
+    @apply bg-brand-600/20 text-brand-300 border border-brand-600/30;
+  }
+}
+
+/* ── Recharts overrides ────────────────────────────────────── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #16162a !important;
+  border: 1px solid #2a2a45 !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+}
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #2a2a45 !important;
+}
