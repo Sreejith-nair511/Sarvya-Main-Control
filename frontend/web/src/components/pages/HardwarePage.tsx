@@ -299,7 +299,7 @@ export function HardwarePage() {
   const currentScenario = DEMO_SCENARIOS.find(s => s.id === selectedScenario);
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-7xl mx-auto">
       <PageHeader
         title="Hardware / Rover"
         subtitle="Real-time sensor data pipeline — ESP32 → MQTT → AI adaptation"

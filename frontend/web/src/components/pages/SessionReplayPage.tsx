@@ -40,7 +40,7 @@ export function SessionReplayPage() {
   if (loading) return <LoadingSpinner className="h-screen" />;
 
   return (
-    <div className="p-6 lg:p-8 max-w-5xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-5xl mx-auto">
       <PageHeader
         title="Session Replay"
         subtitle="Review your complete learning history — every session, score, and adaptation"
@@ -49,7 +49,7 @@ export function SessionReplayPage() {
       />
 
       {/* Summary */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {[
           { label: 'Total Sessions', value: sessions.length,    color: 'text-brand-400' },
           { label: 'Average Score',  value: `${avgScore}%`,     color: 'text-emerald-400' },

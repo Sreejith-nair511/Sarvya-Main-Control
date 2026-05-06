@@ -1,6 +1,6 @@
 'use client';
 import { useSarvyaStore } from '@/store/useSarvyaStore';
-import { Sidebar } from './Sidebar';
+import { Sidebar, MobileTopBar, MobileBottomNav } from './Sidebar';
 import { DashboardPage }    from '@/components/pages/DashboardPage';
 import { TwinPage }         from '@/components/pages/TwinPage';
 import { CompanionPage }    from '@/components/pages/CompanionPage';
@@ -16,18 +16,18 @@ import { AccessDocsPage }   from '@/components/pages/AccessDocsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PAGE_MAP: Record<string, React.ComponentType> = {
-  dashboard:      DashboardPage,
-  twin:           TwinPage,
-  companion:      CompanionPage,
-  transform:      TransformPage,
-  cognitive:      CognitivePage,
-  hardware:       HardwarePage,
-  accessibility:  AccessibilityPage,
-  game:           GamePage,
-  'learning-map': LearningMapPage,
+  dashboard:        DashboardPage,
+  twin:             TwinPage,
+  companion:        CompanionPage,
+  transform:        TransformPage,
+  cognitive:        CognitivePage,
+  hardware:         HardwarePage,
+  accessibility:    AccessibilityPage,
+  game:             GamePage,
+  'learning-map':   LearningMapPage,
   'session-replay': SessionReplayPage,
-  'career-os':    CareerOSPage,
-  'access-page':  AccessDocsPage,
+  'career-os':      CareerOSPage,
+  'access-page':    AccessDocsPage,
 };
 
 export function DashboardShell() {
@@ -36,21 +36,37 @@ export function DashboardShell() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-surface">
+      {/* Desktop sidebar */}
       <Sidebar />
-      <main className="flex-1 overflow-y-auto" role="main" id="main-content">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activePage}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="min-h-full"
-          >
-            <PageComponent />
-          </motion.div>
-        </AnimatePresence>
-      </main>
+
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        {/* Mobile top bar */}
+        <MobileTopBar />
+
+        {/* Page content */}
+        <main
+          className="flex-1 overflow-y-auto pb-20 lg:pb-0"
+          role="main"
+          id="main-content"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePage}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.15, ease: 'easeOut' }}
+              className="min-h-full"
+            >
+              <PageComponent />
+            </motion.div>
+          </AnimatePresence>
+        </main>
+      </div>
+
+      {/* Mobile bottom nav */}
+      <MobileBottomNav />
     </div>
   );
 }

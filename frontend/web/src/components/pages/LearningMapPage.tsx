@@ -89,7 +89,7 @@ export function LearningMapPage() {
   }
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto">
       <PageHeader
         title="Learning Map"
         subtitle="Your personalised learning journey — track progress across all subjects"
@@ -98,7 +98,7 @@ export function LearningMapPage() {
       />
 
       {/* Summary row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {[
           { label: 'Sessions Completed', value: sessions.length, color: 'text-brand-400' },
           { label: 'Average Score',      value: `${avgScore}%`,  color: 'text-emerald-400' },

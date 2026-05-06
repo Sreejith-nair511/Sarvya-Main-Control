@@ -83,7 +83,7 @@ export function AccessibilityPage() {
   }
 
   return (
-    <div className="p-6 lg:p-8 max-w-5xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-5xl mx-auto">
       <PageHeader
         title="Accessibility Settings"
         subtitle="Customize SARVYA to match your needs — every setting adapts the entire ecosystem"

@@ -134,7 +134,7 @@ export function CareerOSPage() {
   const CAREER_URL = 'https://sarvya-carrer.vercel.app/';
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto">
       <PageHeader
         title="Career OS"
         subtitle="Explore career paths, build skills, and track your professional development"

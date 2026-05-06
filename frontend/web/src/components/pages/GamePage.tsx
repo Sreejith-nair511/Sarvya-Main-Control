@@ -123,7 +123,7 @@ export function GamePage() {
   const DIFF_OPTIONS = ['very-easy', 'easy', 'medium', 'hard', 'very-hard'];
 
   return (
-    <div className="p-6 lg:p-8 max-w-3xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-3xl mx-auto">
       <PageHeader
         title="Learning Game"
         subtitle="Adaptive quiz — difficulty adjusts based on your AI twin's recommendations"

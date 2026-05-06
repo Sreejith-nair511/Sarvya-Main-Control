@@ -289,7 +289,7 @@ h1{color:#4f46e5}pre{background:#f5f5f5;padding:16px;border-radius:8px;white-spa
   }
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto">
       <PageHeader
         title="One-Click Accessibility Transformer"
         subtitle="Voice input, AI transformation, download & video script generation"

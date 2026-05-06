@@ -61,7 +61,7 @@ export function DashboardPage() {
   if (loading) return <LoadingSpinner className="h-screen" />;
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-7xl mx-auto">
       {/* Header */}
       <PageHeader
         title="SARVYA Control Center"
@@ -79,7 +79,7 @@ export function DashboardPage() {
       {/* Stat cards */}
       <motion.div
         variants={STAGGER} initial="hidden" animate="show"
-        className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
+        className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
       >
         <motion.div variants={ITEM}>
           <StatCard

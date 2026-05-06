@@ -142,12 +142,35 @@
 
   /* Sidebar nav item */
   .nav-item {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+    @apply flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium
            text-slate-400 hover:text-white hover:bg-surface-hover
            transition-all duration-150 cursor-pointer;
+    min-height: 44px; /* WCAG touch target */
   }
   .nav-item.active {
     @apply bg-brand-600/20 text-brand-300 border border-brand-600/30;
+  }
+
+  /* Mobile-safe page padding */
+  .page-padding {
+    @apply px-4 py-4 lg:px-8 lg:py-8;
+  }
+
+  /* Responsive max-width container */
+  .page-container {
+    @apply w-full max-w-7xl mx-auto px-4 py-4 lg:px-8 lg:py-8;
+  }
+
+  /* Touch-friendly buttons on mobile */
+  @media (max-width: 1024px) {
+    .btn-primary, .btn-secondary {
+      @apply py-3 px-4 text-base;
+      min-height: 44px;
+    }
+    .input {
+      @apply py-3 text-base;
+      min-height: 44px;
+    }
   }
 }
 
@@ -161,4 +184,33 @@
 .recharts-cartesian-grid-horizontal line,
 .recharts-cartesian-grid-vertical line {
   stroke: #2a2a45 !important;
+}
+
+/* ── Mobile safe areas (iPhone notch / home bar) ──────────── */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .pt-safe { padding-top:    env(safe-area-inset-top);    }
+}
+
+/* ── Mobile touch improvements ─────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Prevent text size adjustment on orientation change */
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* Larger tap targets */
+  button, a, [role="button"] { min-height: 44px; }
+
+  /* Smooth momentum scrolling on iOS */
+  .overflow-y-auto { -webkit-overflow-scrolling: touch; }
+
+  /* Hide desktop scrollbar on mobile */
+  ::-webkit-scrollbar { display: none; }
+
+  /* Prevent double-tap zoom on buttons */
+  button { touch-action: manipulation; }
+}
+
+/* ── Responsive chart text ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .recharts-text { font-size: 10px !important; }
 }

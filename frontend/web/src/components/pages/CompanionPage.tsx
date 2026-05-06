@@ -70,7 +70,7 @@ export function CompanionPage() {
   const styleBadge = { beginner: 'emerald', intermediate: 'cyan', advanced: 'violet' }[accessibility.communicationStyle] as any;
 
   return (
-    <div className="flex flex-col h-screen p-6 lg:p-8 max-w-4xl mx-auto">
+    <div className="flex flex-col h-[calc(100vh-56px)] lg:h-screen p-4 lg:p-8 max-w-4xl mx-auto">
       <PageHeader
         title="AI Learning Companion"
         subtitle="Powered by Groq LLaMA 3 — adapts to your level in real time"

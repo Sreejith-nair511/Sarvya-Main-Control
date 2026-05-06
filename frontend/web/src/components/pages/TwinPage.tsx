@@ -56,7 +56,7 @@ export function TwinPage() {
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto">
       <PageHeader
         title="AI Learning Twin"
         subtitle="Your digital twin predicts difficulties, detects weak understanding, and adapts in real time"

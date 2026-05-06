@@ -240,7 +240,7 @@ export function AccessDocsPage() {
   const [activeTab, setActiveTab] = useState('Downloads');
 
   return (
-    <div className="p-6 lg:p-8 max-w-5xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-5xl mx-auto">
       <PageHeader
         title="Access & Documentation"
         subtitle="Download the app, explore the career portal, and integrate SARVYA"

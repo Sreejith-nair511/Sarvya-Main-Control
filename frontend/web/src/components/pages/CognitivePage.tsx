@@ -83,7 +83,7 @@ export function CognitivePage() {
   if (loading) return <LoadingSpinner className="h-screen" />;
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto">
       <PageHeader
         title="Cognitive Load Balancer"
         subtitle="Real-time detection of overload, distraction, and focus — adapts your session automatically"
@@ -116,7 +116,7 @@ export function CognitivePage() {
       </motion.div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <StatCard
           label="Trend"
           value={trend?.trend ?? 'stable'}
